@@ -1,0 +1,33 @@
+﻿
+@model ByteBank.Forum.ViewModels.ContaRegistrarViewModel
+
+@{
+    ViewData["Title"] = "Registrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registrar</h2>
+
+<!--Criar o formulario para o user preeencher-->
+@using (Html.BeginForm())
+{
+    <h4>Complete o cadastro de sua conta</h4>
+    <hr />
+
+    <!--Resume todas as mensagens e erro caso o user tenha escrito algo errado-->
+    <!--Primeiro parametro mensagem: , segundo mudar a classe que sera usada nessa div-->
+
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    <!--Formulario para o user preencher-->
+
+    @Html.EditorForModel()
+
+    <!--Botão para o user clicar e dar submit-->
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit"  value= "Registrar" class = "btn btn-default" />
+    </div>
+</div>   
+}
